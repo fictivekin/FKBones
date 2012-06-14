@@ -8,7 +8,8 @@ define([
 	'models/my_model',
 	'collections/my_collection',
 	'views/my_view',
-	'libs/ujs'
+	'libs/ujs',
+	'util/prototyping_tools'
 ], function($, Dispatcher, MyModel, MyCollection, MyView) {
 	var App = Backbone.View.extend({
 		initialize: function() {

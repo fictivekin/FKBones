@@ -5,6 +5,20 @@ Running
 2. Start the server with `node server.js`
 3. visit localhost:8080
 
+Prototyping tools
+-----------------
+data-spinner-target:
+	When an AJAX event is triggered on this element, use the value of data-spinner-target as a selector to find an element on which to put the class "spinner".  Uses jQuery "closest" function, which selects first element in the set {self, parents} that matches the selector. Automatically removes "spinner" when the request completes
+	Example:
+		<form method="POST" action="/" data-remote="true" data-spinner-target="form"></form>
+		When this form is submitted, it will get class "spinner"
+
+data-toggle-class:
+	When an element with this attribute is clicked, the specified className will be toggled on an element(s) that match the selector in data-target.
+	Example:
+		<a href="#" data-toggle-class="foo" data-target=".bar">Click!</a>
+		When this clicked, the elements with className "bar" will toggle class "foo" (add if not present; remove if present).
+
 Explanation
 -----------
 
