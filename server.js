@@ -1,12 +1,13 @@
 var static = require('node-static');
 var fileServer = new static.Server('./webroot');
 
-var port = 8080;
+var port = process.env.PORT;
+var ip = process.env.IP;
 
 require('http').createServer(function (request, response) {
     request.addListener('end', function () {
         fileServer.serve(request, response);
     });
-}).listen(port);
+}).listen(port, ip);
 
-console.log('Running on http://localhost:' + port);
+console.log('Running on http://' + ip + ':' + port);
