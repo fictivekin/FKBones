@@ -4,13 +4,14 @@ require.config({
 
 define([
 	'libs/jquery',
+	'libs/backbone',
 	'util/dispatcher',
 	'models/my_model',
 	'collections/my_collection',
 	'views/my_view',
 	'libs/ujs',
 	'util/prototyping_tools'
-], function($, Dispatcher, MyModel, MyCollection, MyView) {
+], function($, Backbone, Dispatcher, MyModel, MyCollection, MyView) {
 	var App = Backbone.View.extend({
 		initialize: function() {
 			this.collection = new MyCollection(window.collection);
@@ -37,6 +38,7 @@ define([
 			console.log('i am a click handler:', hello);
 		}
 	});
-	var app = new App({el: document.body});
-	Dispatcher.bind('my_view:click', app.clickHandler, app);
+	// var app = new App({el: document.body});
+	// Dispatcher.bind('my_view:click', app.clickHandler, app);
+	return App;
 });
