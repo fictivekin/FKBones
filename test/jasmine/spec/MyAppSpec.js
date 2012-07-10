@@ -11,7 +11,6 @@ define([
 		});
 
 		jasmine.it('', function() {
-			jasmine.expect(5).toEqual(5);
 		});
 	});
 });
