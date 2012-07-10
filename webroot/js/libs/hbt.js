@@ -24,7 +24,7 @@
 				if (typeof window !== "undefined" && window.navigator && window.document) {
 						get = function (url, callback) {
 								var xhr = new XMLHttpRequest();
-								xhr.open('GET', url, true);
+								xhr.open('GET', url, false);
 								xhr.onreadystatechange = function (evt) {
 										//Do not explicitly handle errors, those should be
 										//visible via console output in the browser.
@@ -35,15 +35,15 @@
 								xhr.send(null);
 						};
 				} else if (typeof process !== "undefined" &&
-								process.versions &&
-								!!process.versions.node) {
+								 process.versions &&
+								 !!process.versions.node) {
 						//Using special require.nodeRequire, something added by r.js.
 						fs = require.nodeRequire('fs');
 
 						get = function (url, callback) {
 								callback(fs.readFileSync(url, 'utf8'));
 						};
-				}
+				} 
 
 				text = {
 						version: '1.0.2',
@@ -133,7 +133,7 @@
 										nonStripName = parsed.moduleName + '.' + parsed.ext,
 										url = req.toUrl(nonStripName),
 										useXhr = (config && config.text && config.text.useXhr) ||
-														text.useXhr;
+														 text.useXhr;
 
 								//Load the text. Use XHR if possible and in a browser.
 								if (!hasLocation || useXhr(url, defaultProtocol, defaultHostName, defaultPort)) {
@@ -148,14 +148,14 @@
 								knownHelpers: {},
 								knownHelpersOnly: true
 							};
-
+	
 								if (moduleName in buildMap) {
 										// var content = text.jsEscape(buildMap[moduleName]);
 										var content = Handlebars.precompile(buildMap[moduleName], options);
 										write.asModule(pluginName + "!" + moduleName,
-																	"define(['libs/handlebars'], function (Handlebars) { return Handlebars.VM.template(" +
-																			content +
-																	");});\n");
+																	 "define(['libs/handlebars'], function (Handlebars) { return Handlebars.VM.template(" +
+																			 content +
+																	 ");});\n");
 								}
 						},
 
@@ -165,7 +165,7 @@
 										//Use a '.js' file name so that it indicates it is a
 										//script that can be loaded across domains.
 										fileName = req.toUrl(parsed.moduleName + '.' +
-																				parsed.ext) + '.js';
+																				 parsed.ext) + '.js';
 
 								//Leverage own load() method to load plugin value, but only
 								//write out values that do not have the strip argument,
