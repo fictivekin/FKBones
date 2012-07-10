@@ -38,7 +38,5 @@ define([
 			console.log('i am a click handler:', hello);
 		}
 	});
-	// var app = new App({el: document.body});
-	// Dispatcher.bind('my_view:click', app.clickHandler, app);
 	return App;
 });
