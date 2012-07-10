@@ -10,7 +10,7 @@ define([
 			model = new MyModel();
 		});
 
-		jasmine.it('should be cool', function() {
+		jasmine.it('', function() {
 			jasmine.expect(5).toEqual(5);
 		});
 	});
