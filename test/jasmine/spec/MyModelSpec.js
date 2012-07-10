@@ -5,13 +5,13 @@ define([
 ], function(jasmine, sinon, MyModel) {
 	jasmine.describe('MyModel', function() {
 		var model;
-
 		jasmine.beforeEach(function() {
-			model = new MyModel();
+			this.model = new MyModel();
 		});
 
-		jasmine.it('', function() {
-			jasmine.expect(5).toEqual(5);
+		jasmine.it('should be able to set the name', function() {
+			this.model.setName('ehaas');
+			jasmine.expect(this.model.getName()).toEqual('ehaas');
 		});
 	});
 });
