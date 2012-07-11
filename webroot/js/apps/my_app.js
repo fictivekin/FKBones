@@ -14,7 +14,7 @@ define([
 ], function($, Backbone, Dispatcher, MyModel, MyCollection, MyView) {
 	var App = Backbone.View.extend({
 		initialize: function() {
-			this.collection = new MyCollection(window.collection);
+			this.collection = new MyCollection(window.people);
 			this.collection.bind('add', this.renderModel, this);
 			this.render();
 		},
