@@ -109,6 +109,8 @@
 						finishLoad: function (name, content, onLoad, config) {
 								if (config.isBuild) {
 										buildMap[name] = content;
+								} else {
+									content = '<!-- /static/js/' + name +' -->' + content;
 								}
 								onLoad(Handlebars.compile(content));
 						},
